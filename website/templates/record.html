@@ -2,48 +2,48 @@
 
 {% block content %}
 
-<style>
-  .card {
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
-  }
+    <style>
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+        }
 
-  .card-header {
-    border-radius: 15px 15px 0 0;
-  }
+        .card-header {
+            border-radius: 15px 15px 0 0;
+        }
 
-  .card-body, .card-footer {
-    border-radius: 0 0 15px 15px;
-  }
-</style>
+        .card-body, .card-footer {
+            border-radius: 0 0 15px 15px;
+        }
+    </style>
 
-<div class="container mt-4">
-  <div class="card">
-    <div class="card-header bg-primary text-light">
-      <h4 class="mb-0">{{ customer_record.first_name }} {{ customer_record.last_name }}</h4>
-    </div>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-md-6">
-          <p><strong>Email:</strong> {{ customer_record.email }}</p>
-          <p><strong>Phone:</strong> {{ customer_record.phone }}</p>
-          <p><strong>Address:</strong> {{ customer_record.address }}</p>
-          <p><strong>City:</strong> {{ customer_record.city }}</p>
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header bg-primary text-light">
+                <h4 class="mb-0">{{ customer_record.first_name }} {{ customer_record.last_name }}</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Email:</strong> {{ customer_record.email }}</p>
+                        <p><strong>Phone:</strong> {{ customer_record.phone }}</p>
+                        <p><strong>Address:</strong> {{ customer_record.address }}</p>
+                        <p><strong>City:</strong> {{ customer_record.city }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>State:</strong> {{ customer_record.state }}</p>
+                        <p><strong>Zipcode:</strong> {{ customer_record.zipcode }}</p>
+                        <p><strong>Created At:</strong> {{ customer_record.created_at }}</p>
+                        <p><strong>ID:</strong> {{ customer_record.id }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-muted">
+                <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+                <a href="{% url 'delete_record' customer_record.id %}" class="btn btn-danger">Delete</a>
+                <a href="{% url 'update_record' customer_record.id %}" class="btn btn-secondary">Update Record</a>
+            </div>
         </div>
-        <div class="col-md-6">
-          <p><strong>State:</strong> {{ customer_record.state }}</p>
-          <p><strong>Zipcode:</strong> {{ customer_record.zipcode }}</p>
-          <p><strong>Created At:</strong> {{ customer_record.created_at }}</p>
-          <p><strong>ID:</strong> {{ customer_record.id }}</p>
-        </div>
-      </div>
     </div>
-    <div class="card-footer text-muted">
-      <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
-      <a href="{% url 'delete_record' customer_record.id %}" class="btn btn-danger">Delete</a>
-      <a href="{% url 'update_record' customer_record.id %}" class="btn btn-secondary">Update Record</a>
-    </div>
-  </div>
-</div>
 
 {% endblock %}
